@@ -4,7 +4,7 @@ export const resumeData = {
     phone: "+65 9296 2763",
     github: "https://github.com/swxk19",
     linkedin: "https://www.linkedin.com/in/kelvin-seow-swx/",
-    bio: "Aspiring Software Engineer with a passion for Machine Learning and Full-Stack Development. Eager to leverage strong technical skills and a collaborative mindset to build innovative solutions.",
+    bio: "Aspiring Software Engineer with a passion and background in Software Engineering, Full-Stack Development, Testing, and Machine Learning. Eager to leverage technical skills and collaborative mindset to build innovative solutions.",
     experience: [
       {
         title: "Machine Learning Intern",
