@@ -19,10 +19,10 @@ const InteractiveView = () => (
     />
     <main>
       <InteractiveExperience />
-      <InteractiveProjects />
       <InteractiveEducation />
       <InteractiveSkills />
       <InteractiveCoursework />
+      <InteractiveProjects />
     </main>
     <footer className="text-center mt-12 py-6 border-t border-slate-200">
       <p className="text-sm text-gray-500">
