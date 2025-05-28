@@ -1,15 +1,17 @@
 import React from 'react';
 import SectionTitle from '../common/SectionTitle';
-import PlainSkillCategory from './PlainSkillCategory';
+import PlainSkillItem from './PlainSkillItem'; // Changed import
 import { Zap } from 'lucide-react';
 import { resumeData } from '../../data/resumeData'; // Import data
 
 const PlainSkills = () => (
-  <section className="mb-8 p-4 border border-gray-200 rounded-lg bg-white hover:shadow-md transition-shadow">
+  <section className="mb-8"> {/* Removed outer card styling */}
     <SectionTitle title="Skills" icon={<Zap size={28} className="text-slate-600" />} />
-    {resumeData.skills.map((category, index) => (
-      <PlainSkillCategory key={index} title={category.title} skillsList={category.skillsList} />
-    ))}
+    <div className="grid md:grid-cols-2 gap-8"> {/* Added grid layout */}
+      {resumeData.skills.map((category, index) => (
+        <PlainSkillItem key={index} title={category.title} skillsList={category.skillsList} />
+      ))}
+    </div>
   </section>
 );
 
