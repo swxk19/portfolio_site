@@ -26,11 +26,6 @@ const PlainResumeView = ({ isInteractiveMode, setIsInteractiveMode }) => {
         <PlainCoursework />
         <PlainProjects />
       </main>
-      <footer className="text-center mt-8 pb-4">
-        <p className="text-sm text-gray-500">
-          Plain Resume Mode.
-        </p>
-      </footer>
     </div>
   );
 };

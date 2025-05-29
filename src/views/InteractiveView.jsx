@@ -1,5 +1,34 @@
 import React, { useState } from 'react';
-import { Eye, Palette } from 'lucide-react'; // Import Lucide icons for potential future use or if PlainResumeView still needs them
+import { Mail, Phone, Github, Linkedin } from 'lucide-react'; // Import Lucide icons for contact info
+import { resumeData } from '../data/resumeData'; // Import resume data
+
+// Helper map for skill emojis
+const skillEmojiMap = {
+  'Python': '🐍',
+  'JavaScript': '�',
+  'TypeScript': '📜',
+  'Java': '☕',
+  'C': '⚙️',
+  'SQL': '🗄️',
+  'React': '⚛️',
+  'PyTorch': '🧠',
+  'FastAPI': '⚡',
+  'MongoDB': '🍃',
+  'PostGresDB': '🐘',
+  'AWS (EC2)': '☁️',
+  'Docker': '🐳',
+  'Gradle': '🛠️',
+  'Selenium': '🌐',
+  'Jest': '✅',
+  'Playwright': '🎭',
+  'JMeter': '🚀',
+  'Machine Learning': '🤖',
+  'Software Engineering Principles': '📐',
+  'Agile Development': '🏃',
+  'Data Structures & Algorithms': '🧩',
+  'Git & GitHub': '🐙', // Explicitly add Git & GitHub emoji
+  // Add more as needed
+};
 
 // InteractiveView component for the portfolio webpage
 export default function InteractiveView({ isInteractiveMode, setIsInteractiveMode }) {
@@ -11,117 +40,74 @@ export default function InteractiveView({ isInteractiveMode, setIsInteractiveMod
     setOpenCategory(openCategory === categoryName ? null : categoryName);
   };
 
-  // Define skills categorized with emojis for a fun touch
+  // Process skills from resumeData into categorizedSkills structure
   const categorizedSkills = [
-    {
-      category: 'Programming Languages',
-      emoji: '📚',
-      skills: [
-        { name: 'Python', emoji: '🐍' },
-        { name: 'JavaScript', emoji: '💻' },
-        { name: 'TypeScript', emoji: '📜' },
-        { name: 'Java', emoji: '☕' },
-        { name: 'C', emoji: '⚙️' },
-        { name: 'SQL', emoji: '🗄️' },
-      ],
-    },
-    {
-      category: 'Frameworks & Libraries',
-      emoji: '🏗️',
-      skills: [
-        { name: 'React', emoji: '⚛️' },
-        { name: 'PyTorch', emoji: '🧠' },
-        { name: 'FastAPI', emoji: '⚡' },
-      ],
-    },
-    {
-      category: 'Databases',
-      emoji: '🗃️',
-      skills: [
-        { name: 'MongoDB', emoji: '🍃' },
-        { name: 'PostGresDB', emoji: '🐘' },
-      ],
-    },
-    {
-      category: 'Tools & Platforms',
-      emoji: '🛠️',
-      skills: [
-        { name: 'AWS (EC2)', emoji: '☁️' },
-        { name: 'Docker', emoji: '🐳' },
-        { name: 'Gradle', emoji: '⚙️' },
-        { name: 'Git & GitHub', emoji: '🐙' },
-      ],
-    },
-    {
-      category: 'Testing & DevOps',
-      emoji: '🧪',
-      skills: [
-        { name: 'Jest', emoji: '✅' },
-        { name: 'Playwright', emoji: '🎭' },
-        { name: 'JMeter', emoji: '🚀' },
-        { name: 'Selenium', emoji: '🌐' },
-      ],
-    },
-    {
-      category: 'Concepts & Methodologies',
-      emoji: '💡',
-      skills: [
-        { name: 'Machine Learning', emoji: '🤖' },
-        { name: 'Software Engineering Principles', emoji: '📐' },
-        { name: 'Agile Development', emoji: '🏃' },
-        { name: 'Data Structures & Algorithms', emoji: '🧩' },
-      ],
-    },
+    { category: 'Programming Languages', emoji: '📚', skills: [] },
+    { category: 'Frameworks & Libraries', emoji: '🏗️', skills: [] },
+    { category: 'Databases', emoji: '🗃️', skills: [] },
+    { category: 'Tools & Platforms', emoji: '🛠️', skills: [] },
+    { category: 'Testing & DevOps', emoji: '🧪', skills: [] },
+    { category: 'Concepts & Methodologies', emoji: '💡', skills: [] },
   ];
 
-  // Define some placeholder projects
-  const projects = [
-    {
-      title: 'E-commerce Site Testing',
-      description: 'Engineered unit and integration tests for an e-commerce site, achieving code coverage of 95%. Created 75+ UI tests to ensure seamless user experience, functionality, and regression prevention.',
-      tech: ['MongoDB', 'JavaScript', 'Jest', 'Playwright', 'JMeter'],
-      link: 'https://github.com/swxk19/cs4218-project-2024-team04/',
-      image: 'https://placehold.co/400x250/FFD700/000000?text=E-commerce+Testing',
-    },
-    {
-      title: 'PeerPrep (Technical Interview Platform)',
-      description: 'Led and coordinated a 4-member Agile development team for a technical interview preparation platform. Integrated video and chat functionalities to facilitate seamless communication during mock interviews.',
-      tech: ['Python', 'FastAPI', 'Docker', 'TypeScript'],
-      link: 'https://github.com/swxk19/ay2324s1-course-assessment-g23',
-      image: 'https://placehold.co/400x250/87CEEB/000000?text=PeerPrep',
-    },
-    {
-      title: 'Machine Learning Model for Ship Classification',
-      description: 'Developed a machine learning model for ship classification based on emitted sound, achieving 76% accuracy. Implemented incremental learning for new classes.',
-      tech: ['Python', 'PyTorch', 'Machine Learning'],
-      link: '#',
-      image: 'https://placehold.co/400x250/90EE90/000000?text=ML+Model',
-    },
-  ];
+  // Populate skills based on resumeData and map to categories
+  resumeData.skills.forEach(skillCategory => {
+    skillCategory.skillsList.forEach(skillName => {
+      const skillWithEmoji = { name: skillName, emoji: skillEmojiMap[skillName] || '✨' };
 
-  // Education details from resume
-  const education = [
-    {
-      degree: 'Bachelor of Computing in Computer Science (Second Class Upper)',
-      institution: 'National University of Singapore (NUS)',
-      year: '2025',
-      notes: [],
-    },
-    {
-      degree: 'Diploma with Merit in Applied Chemistry',
-      institution: 'Singapore Polytechnic (SP)',
-      year: '2019',
-      notes: ['Bronze Medalist', 'September 2018 - February 2019'],
-    },
-  ];
+      // Determine which category this skill belongs to based on its name
+      if (['Python', 'JavaScript', 'TypeScript', 'Java', 'C', 'SQL'].includes(skillName)) {
+        categorizedSkills[0].skills.push(skillWithEmoji); // Programming Languages
+      } else if (['React', 'PyTorch', 'FastAPI'].includes(skillName)) {
+        categorizedSkills[1].skills.push(skillWithEmoji); // Frameworks & Libraries
+      } else if (['MongoDB', 'PostGresDB'].includes(skillName)) {
+        categorizedSkills[2].skills.push(skillWithEmoji); // Databases
+      } else if (['AWS (EC2)', 'Docker', 'Gradle', 'Git & GitHub'].includes(skillName)) {
+        categorizedSkills[3].skills.push(skillWithEmoji); // Tools & Platforms
+      } else if (['Jest', 'Playwright', 'JMeter', 'Selenium'].includes(skillName)) {
+        categorizedSkills[4].skills.push(skillWithEmoji); // Testing & DevOps
+      }
+    });
+  });
+
+  // Add concepts from resumeData.coursework or manually if not covered by skillsList
+  // For now, these are explicitly added as they represent broader concepts
+  categorizedSkills[5].skills.push(
+    { name: 'Machine Learning', emoji: skillEmojiMap['Machine Learning'] },
+    { name: 'Software Engineering Principles', emoji: skillEmojiMap['Software Engineering Principles'] },
+    { name: 'Agile Development', emoji: skillEmojiMap['Agile Development'] },
+    { name: 'Data Structures & Algorithms', emoji: skillEmojiMap['Data Structures & Algorithms'] }
+  );
+
+  // Sort skills within each category alphabetically by name
+  categorizedSkills.forEach(category => {
+    category.skills.sort((a, b) => a.name.localeCompare(b.name));
+  });
+
+  // Process projects from resumeData
+  const projects = resumeData.projects.map(proj => ({
+    title: proj.title,
+    description: proj.description.join(' '), // Join description array into a single string
+    tech: proj.techStack,
+    link: proj.githubLink,
+    image: `https://placehold.co/400x250/cccccc/333333?text=${proj.title.replace(/\s/g, '+')}`, // Placeholder image
+  }));
+
+  // Process education from resumeData
+  const education = resumeData.education.map(edu => ({
+    degree: edu.degree,
+    institution: edu.institution,
+    year: edu.year,
+    notes: edu.details || [], // Ensure notes is an array
+  }));
 
   // Mode Toggle Button component (now inside InteractiveView)
   const ModeToggleButton = () => (
     <button
       onClick={() => setIsInteractiveMode(!isInteractiveMode)}
-      className="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+      className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mt-4"
     >
-      {isInteractiveMode ? "View as Plain CV" : "View as Interactive Website"}
+      View as Plain CV
     </button>
   );
 
@@ -138,16 +124,16 @@ export default function InteractiveView({ isInteractiveMode, setIsInteractiveMod
 
         <div className="relative z-10 max-w-3xl mx-auto">
           <h1 className="text-6xl font-extrabold text-white mb-4 drop-shadow-lg leading-tight font-montserrat">
-            Hey there! I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Kelvin Seow</span> ✨
+            Hey there! I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">{resumeData.name}</span> ✨
           </h1>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Welcome to my digital playground! I'm a Computer Science major who loves building cool stuff, solving tricky problems, and turning ideas into code. Let's explore!
-          </p>
-          {/* Place the Mode Toggle Button here */}
+          {/* Place the Mode Toggle Button immediately after the name */}
           <ModeToggleButton />
+          <p className="text-xl text-gray-300 mt-6 mb-8 max-w-2xl mx-auto"> {/* Adjusted margin-top */}
+            {resumeData.bio}
+          </p>
           <a
             href="#projects"
-            className="inline-block bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out mt-8 ml-4" // Adjusted margin-top and margin-left
+            className="inline-block bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out"
           >
             See My Projects 👇
           </a>
@@ -162,13 +148,13 @@ export default function InteractiveView({ isInteractiveMode, setIsInteractiveMod
         </div>
         <div className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-200">
           <p className="mb-4">
-            As a Computer Science major from National University of Singapore (NUS), I'm constantly fascinated by how technology shapes our world. My journey into code started with a curious click, and now I'm hooked on the thrill of bringing ideas to life, one line of code at a time!
+            As a Computer Science major from {resumeData.education[0]?.institution} (NUS), I'm constantly fascinated by how technology shapes our world. My journey into code started with a curious click, and now I'm hooked on the thrill of bringing ideas to life, one line of code at a time!
           </p>
           <p className="mb-4">
             I thrive on challenges and enjoy diving deep into new concepts, whether it's optimizing algorithms, designing user-friendly interfaces, or exploring the frontiers of AI. When I'm not coding, you can probably find me [mention a casual hobby, e.g., "sipping coffee and brainstorming my next big project," or "exploring new hiking trails," or "playing video games"].
           </p>
           <p>
-            I'm always eager to learn, collaborate, and contribute to impactful projects. Feel free to connect if you're building something awesome or just want to chat about tech! You can reach me at <a href="mailto:s.wxk19@gmail.com" className="text-cyan-400 hover:underline">s.wxk19@gmail.com</a> or <a href="tel:+6592962763" className="text-cyan-400 hover:underline">+65 9296 2763</a>.
+            I'm always eager to learn, collaborate, and contribute to impactful projects. Feel free to connect if you're building something awesome or just want to chat about tech! You can reach me at <a href={`mailto:${resumeData.email}`} className="text-cyan-400 hover:underline">{resumeData.email}</a> or <a href={`tel:${resumeData.phone}`} className="text-cyan-400 hover:underline">{resumeData.phone}</a>.
           </p>
         </div>
       </section>
@@ -290,18 +276,18 @@ export default function InteractiveView({ isInteractiveMode, setIsInteractiveMod
         </div>
         <div className="text-center mt-12">
           <p className="text-xl text-gray-300">
-            Want to see more? Check out my full <a href="https://github.com/swxk19" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline font-bold">GitHub profile</a>!
+            Want to see more? Check out my full <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline font-bold">GitHub profile</a>!
           </p>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="py-8 px-4 text-center text-gray-400 text-sm">
-        <p>&copy; {new Date().getFullYear()} Kelvin Seow. All rights reserved. Built with ❤️ and React.</p>
+        <p>&copy; {new Date().getFullYear()} {resumeData.name}. All rights reserved. Built with ❤️ and React.</p>
         <div className="mt-4 flex justify-center space-x-4">
-          <a href="https://www.linkedin.com/in/kelvin-seow-swxk19/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">LinkedIn</a>
-          <a href="https://github.com/swxk19" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">GitHub</a>
-          <a href="mailto:s.wxk19@gmail.com" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">Email</a>
+          <a href={resumeData.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">LinkedIn</a>
+          <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">GitHub</a>
+          <a href={`mailto:${resumeData.email}`} className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">Email</a>
         </div>
       </footer>
 

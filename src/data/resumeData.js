@@ -33,13 +33,13 @@ export const resumeData = {
       {
         degree: "Bachelor of Computing in Computer Science",
         institution: "National University of Singapore (NUS)",
-        year: "Expected 2025",
+        year: "2021 - 2025",
         details: ["Second Class Upper"],
       },
       {
         degree: "Diploma with Merit in Applied Chemistry",
         institution: "Singapore Polytechnic (SP)",
-        year: "2019",
+        year: "2016 - 2019",
         details: ["Bronze Medalist"],
       },
     ],
