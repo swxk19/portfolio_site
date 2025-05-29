@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+My Personal Portfolio Website
+This interactive personal portfolio website showcases my skills, projects, and educational background as a Computer Science major. It is designed to be both informative and engaging, featuring a dynamic layout with interactive elements and a clean, modern aesthetic.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Technologies Used
+React.js: Used as the frontend library for building user interfaces.
 
-## Available Scripts
+Tailwind CSS: Employed as a utility-first CSS framework for rapid UI development.
 
-In the project directory, you can run:
+Lucide React: Integrated as an icon library for clean and customizable SVG icons.
 
-### `npm start`
+Google Fonts: Poppins, Montserrat, and Inter are used for modern typography.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+AOS (Animate On Scroll): Included as a library for scroll animations.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+JavaScript (ES6+): The core programming language for the application.
 
-### `npm test`
+HTML5 & CSS3: Standard web technologies are used for structure and styling.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Project Structure
+.
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js
+│   ├── data/
+│   │   └── resumeData.js
+│   ├── components/
+│   │   ├── interactive/
+│   │   │   ├── InteractiveAbout.jsx
+│   │   │   ├── InteractiveEducation.jsx
+│   │   │   ├── InteractiveFooter.jsx
+│   │   │   ├── InteractiveHeader.jsx
+│   │   │   ├── InteractiveProjects.jsx
+│   │   │   └── InteractiveSkills.jsx
+│   │   └── plain/
+│   │       ├── PlainHeader.jsx
+│   │       ├── PlainExperience.jsx
+│   │       ├── PlainProjects.jsx
+│   │       ├── PlainEducation.jsx
+│   │       ├── PlainSkills.jsx
+│   │       └── PlainCoursework.jsx
+│   └── views/
+│       ├── InteractiveView.jsx
+│       └── PlainResumeView.jsx
+├── package.json
+├── README.md
+└── ... (other config files)
 
-### `npm run build`
+Setup and Installation
+To get a local copy of this project running, follow these simple steps.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Prerequisites
+Node.js (LTS version recommended)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm or Yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Installation
+Clone the repository:
 
-### `npm run eject`
+git clone https://github.com/yourusername/your-portfolio-repo.git
+cd your-portfolio-repo
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+(Remember to replace yourusername/your-portfolio-repo.git with your actual repository URL)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm install
+# or
+yarn install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Run the development server:
 
-## Learn More
+npm start
+# or
+yarn start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This opens the application in your browser at http://localhost:3000.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributing
+Contributions are welcome. If you have suggestions or find issues, please open an issue or submit a pull request.
 
-### Code Splitting
+License
+Distributed under the MIT License. See LICENSE for more information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Contact
+Kelvin Seow - s.wxk19@gmail.com
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Link: [https://github.com/swxk19/your-portfolio-repo (Remember to update this link)](https://swxk19.github.io/portfolio_site/)
