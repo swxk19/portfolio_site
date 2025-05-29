@@ -106,7 +106,7 @@ export default function InteractiveView({ isInteractiveMode, setIsInteractiveMod
 
   // Process education from resumeData
   const educationData = resumeData.education.map(edu => ({
-    degree: edu.degree + (edu.details && edu.details.length > 0 ? ` (${edu.details.join(', ')})` : ''),
+    degree: edu.degree,
     institution: edu.institution,
     year: edu.year,
     notes: edu.details || [], // Ensure notes is an array

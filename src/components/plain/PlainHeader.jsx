@@ -59,13 +59,13 @@ const PlainHeader = ({ name, email, phone, github, isInteractiveMode, setIsInter
             transform: translateY(0);
           }
           25% {
-            transform: translateY(-3px); /* Small upward bounce */
+            transform: translateY(-6px); /* Increased upward bounce */
           }
           50% {
             transform: translateY(0);
           }
           75% {
-            transform: translateY(-1px); /* Even smaller upward bounce */
+            transform: translateY(-2px); /* Increased smaller upward bounce */
           }
         }
         .animate-subtle-bounce {
