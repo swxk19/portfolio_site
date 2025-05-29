@@ -9,7 +9,7 @@ const InteractiveHeader = ({ name, bio, email, phone, github, linkedin, isIntera
       onClick={() => setIsInteractiveMode(!isInteractiveMode)}
       className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mt-4"
     >
-      View Plain CV
+      View as Plain CV
     </button>
   );
 
@@ -21,10 +21,10 @@ const InteractiveHeader = ({ name, bio, email, phone, github, linkedin, isIntera
       <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
 
       <div className="relative z-10 max-w-3xl mx-auto">
-        <h1 className="text-6xl font-extrabold text-white mb-4 drop-shadow-lg leading-tight font-montserrat">
-          Hey there! I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">{name}</span> ✨
+        <h1 className="text-6xl font-extrabold text-white mb-4 drop-shadow-lg leading-tight font-montserrat flex flex-col items-center">
+          <span>Hey there!</span> 
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mt-2">{name} ✨</span> 
         </h1>
-        {/* Place the Mode Toggle Button immediately after the name */}
         <ModeToggleButton />
         <p className="text-xl text-gray-300 mt-6 mb-8 max-w-2xl mx-auto">
           {bio}

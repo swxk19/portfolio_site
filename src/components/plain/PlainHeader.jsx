@@ -7,7 +7,7 @@ const PlainHeader = ({ name, email, phone, github, isInteractiveMode, setIsInter
   const ModeToggleButton = () => (
     <button
       onClick={() => setIsInteractiveMode(!isInteractiveMode)}
-      className="relative inline-flex flex-col items-center justify-center bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-extrabold py-2 px-6 rounded-full shadow-xl transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-75 text-sm hover:scale-105 hover:shadow-2xl hover:-translate-y-1 ml-4 overflow-hidden group font-inter animate-subtle-bounce" // Added animate-subtle-bounce
+      className="relative inline-flex flex-col items-center justify-center bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-extrabold py-2 px-6 rounded-full shadow-xl transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-75 text-sm hover:scale-105 hover:shadow-2xl hover:-translate-y-1 ml-4 overflow-hidden group font-montserrat animate-subtle-bounce" // Changed font-inter to font-montserrat
     >
       <span className="text-3d-effect">View CV as</span>
       <span className="text-3d-effect">Interactive Web Page</span>
@@ -43,6 +43,9 @@ const PlainHeader = ({ name, email, phone, github, isInteractiveMode, setIsInter
         }
         .font-inter {
           font-family: 'Inter', sans-serif;
+        }
+        .font-montserrat { /* Ensure Montserrat is defined here if not globally */
+          font-family: 'Montserrat', sans-serif;
         }
         .text-3d-effect {
           /* Base text color is white from parent */
