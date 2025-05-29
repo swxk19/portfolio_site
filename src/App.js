@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Eye, Palette } from 'lucide-react';
+import { Eye, Palette } from 'lucide-react'; // Keep imports for PlainResumeView if it uses them
 import PlainResumeView from './views/PlainResumeView'; // Assuming this file exists
 import InteractiveView from './views/InteractiveView'; // Import the new InteractiveView
 import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
+  // Default view is set to interactive mode (true)
   const [isInteractiveMode, setIsInteractiveMode] = useState(true);
 
   useEffect(() => {
@@ -97,21 +98,14 @@ function App() {
     }
   }, [isInteractiveMode]);
 
-  const ModeToggleButton = () => (
-    <button
-      onClick={() => setIsInteractiveMode(!isInteractiveMode)}
-      title={isInteractiveMode ? "Switch to Plain Resume" : "Switch to Interactive Website"}
-      className="fixed top-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-    >
-      {isInteractiveMode ? <Eye size={24} /> : <Palette size={24} />}
-    </button>
-  );
-
   return (
     <Router>
       <div className={`min-h-screen transition-colors duration-300`}>
-        <ModeToggleButton />
-        {isInteractiveMode ? <InteractiveView /> : <PlainResumeView />}
+        {/* The ModeToggleButton is now handled within InteractiveView and PlainResumeView */}
+        {isInteractiveMode ?
+          <InteractiveView isInteractiveMode={isInteractiveMode} setIsInteractiveMode={setIsInteractiveMode} /> :
+          <PlainResumeView isInteractiveMode={isInteractiveMode} setIsInteractiveMode={setIsInteractiveMode} />
+        }
       </div>
     </Router>
   );

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Eye, Palette } from 'lucide-react'; // Import Lucide icons for potential future use or if PlainResumeView still needs them
 
 // InteractiveView component for the portfolio webpage
-export default function InteractiveView() {
+export default function InteractiveView({ isInteractiveMode, setIsInteractiveMode }) {
   // State to manage the currently open skill category for the accordion
   const [openCategory, setOpenCategory] = useState(null); // Stores the category name, or null if none are open
 
@@ -114,6 +115,16 @@ export default function InteractiveView() {
     },
   ];
 
+  // Mode Toggle Button component (now inside InteractiveView)
+  const ModeToggleButton = () => (
+    <button
+      onClick={() => setIsInteractiveMode(!isInteractiveMode)}
+      className="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+    >
+      {isInteractiveMode ? "View as Plain CV" : "View as Interactive Website"}
+    </button>
+  );
+
   return (
     // Apply Poppins as the base font, Montserrat for headings
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-950 to-purple-950 text-gray-200 font-poppins">
@@ -132,9 +143,11 @@ export default function InteractiveView() {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Welcome to my digital playground! I'm a Computer Science major who loves building cool stuff, solving tricky problems, and turning ideas into code. Let's explore!
           </p>
+          {/* Place the Mode Toggle Button here */}
+          <ModeToggleButton />
           <a
             href="#projects"
-            className="inline-block bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out"
+            className="inline-block bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out mt-8 ml-4" // Adjusted margin-top and margin-left
           >
             See My Projects 👇
           </a>
